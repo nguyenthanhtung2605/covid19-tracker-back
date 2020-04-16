@@ -1,4 +1,4 @@
-package io.soen487p3.webservice.covid19tracker.security;
+package io.soen487p3.webservice.covid19tracker.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
