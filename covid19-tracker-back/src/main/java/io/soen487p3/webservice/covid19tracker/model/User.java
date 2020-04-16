@@ -5,42 +5,45 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Entity
 @Table(name = "auth_user")
 public class User {
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    //nếu sử dụng GenerationType.IDENTITY sẽ bị lội
+    // javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: error performing isolated work
+    // solved it by changing to "@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(value = "user_id", access = JsonProperty.Access.READ_ONLY)
     @Column(name = "auth_user_id")
     private int id;
 
-    @NotNull(message="First name is compulsory")
+    @NotEmpty(message = "Please provide your first name")
     @JsonProperty(value = "first_name")
     @Column(name = "first_name")
     private String firstName;
 
-    @NotNull(message="Last name is compulsory")
+    @NotEmpty(message = "Please provide your last name")
     @JsonProperty(value = "last_name")
     @Column(name = "last_name")
     private String lastName;
 
-    @NotNull(message="Please provide a valid email")
-    @Email(message = "Email is invalid")
+    @Email(message = "Please provide a valid e-mail")
+    @NotEmpty(message = "Please provide an e-mail")
     @JsonProperty(value = "email")
-    @Column(name = "user_email")
+    @Column(name = "user_email", nullable = false, unique = true)
     private String email;
 
-    @Id
-    @Length(min=8, message="Username should be at least 8 characters")
+
+    @Length(min=5, message="Username should be at least 5 characters")
     @JsonProperty(value = "username")
-    @Column(name = "user_nickname")
+    @Column(name = "user_nickname", nullable = false, unique = true)
     private String userName;
 
-    @NotNull(message="Password is compulsory")
-    @Length(min=8, message="Password should be at least 5 characters")
+    @NotEmpty(message="Password is compulsory")
+    @Length(min=5, message="Password should be at least 5 characters")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "user_password")
     private String password;
@@ -49,12 +52,12 @@ public class User {
     @Column(name = "is_verified")
     private boolean isVerified;
 
-    @JsonProperty(value = "is_verified")
+    @JsonProperty(value = "is_enabled")
     @Column(name = "is_enabled")
     private boolean isEnabled;
 
     @JsonProperty(value = "roles")
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "auth_user_role", joinColumns = @JoinColumn(name = "auth_user_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
     private Set<Role> roles;
 
