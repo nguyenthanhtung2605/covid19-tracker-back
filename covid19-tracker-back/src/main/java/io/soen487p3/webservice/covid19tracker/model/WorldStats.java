@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
+import com.alibaba.fastjson.JSON;
+
 
 public class WorldStats {
     @JsonProperty(value = "total_cases")
@@ -25,6 +27,10 @@ public class WorldStats {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date statisticTakenAt;
 
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
     public WorldStats() {
     }
 
@@ -75,4 +81,5 @@ public class WorldStats {
     public void setStatisticTakenAt(Date statisticTakenAt) {
         this.statisticTakenAt = statisticTakenAt;
     }
+
 }

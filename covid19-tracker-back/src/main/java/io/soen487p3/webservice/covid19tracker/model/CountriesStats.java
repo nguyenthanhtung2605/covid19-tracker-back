@@ -1,5 +1,6 @@
 package io.soen487p3.webservice.covid19tracker.model;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
@@ -11,6 +12,11 @@ public class CountriesStats {
 
     @JsonProperty(value = "statistic_taken_at")
     private Date statisticTakenAt;
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 
     public List<CountryStats> getCountriesStats() {
         return countriesStats;

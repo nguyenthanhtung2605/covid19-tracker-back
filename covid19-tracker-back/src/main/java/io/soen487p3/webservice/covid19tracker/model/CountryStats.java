@@ -1,5 +1,6 @@
 package io.soen487p3.webservice.covid19tracker.model;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,6 +47,11 @@ public class CountryStats {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date recordDate;
 
+
+   @Override
+   public String toString() {
+      return JSON.toJSONString(this);
+   }
 
     public CountryStats() {
     }

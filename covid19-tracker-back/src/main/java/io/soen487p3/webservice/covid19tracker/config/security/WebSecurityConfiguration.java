@@ -39,12 +39,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/").permitAll()
+                    .antMatchers("/index").permitAll()
                     .antMatchers("/home").permitAll()
                     .antMatchers("/register").permitAll()
                     .antMatchers("/login").permitAll()
                     .antMatchers("/superuser/**").hasRole("SUPER_USER")
                     .antMatchers("/admin/**").hasAnyRole("ADMIN_USER","SUPER_USER")
                     .antMatchers("/user/**").hasAnyRole("SUPER_USER","ADMIN_USER", "SITE_USER")
+                    .antMatchers("/worldsta").hasAnyRole("SUPER_USER","ADMIN_USER", "SITE_USER")
+                    .antMatchers("/affectedcountries").hasAnyRole("SUPER_USER","ADMIN_USER", "SITE_USER")
                     .anyRequest().authenticated()
                     .and()
 

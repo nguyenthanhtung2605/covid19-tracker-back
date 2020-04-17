@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Covid19 Info App</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Loan System - Content</title>
+   <script type="text/javascript" src="js/main.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-Hello user
+
+<div class="container">
+   <div th:include="nav.html"></div>
+   <div class="jumbotron">
+      <div class="alert alert-primary d-flex justify-content-center" role="alert">
+         Please Choose Your Options
+      </div>
+      <div>
+         <ul class="list-group">
+            <li class="list-group-item">
+               <a class="nav-link" href="/worldsta">Get worldstats</a>
+            </li>
+            <li class="list-group-item">
+               <a class="nav-link" href="/affectedcountries">affected_countries</a>
+            </li>
+            <li class="list-group-item">
+               <a class="nav-link" href="/canada">canada</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
 </body>
 </html>

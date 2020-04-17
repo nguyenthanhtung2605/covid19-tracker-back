@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="ISO-8859-1">
+   <title>Covid19 Info App</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+   <div th:include="nav.html"></div>
+   <div class="jumbotron">
+      <div class="alert alert-primary d-flex justify-content-center " role="alert">Canada Statistics</div>
+      <table class="table">
+         <thead>
+         <tr>
+            <th scope="col">Active Cases</th>
+            <th scope="col">New Cases</th>
+            <th scope="col">New Deaths</th>
+            <th scope="col">Total Cases</th>
+            <th scope="col">Total Deaths</th>
+            <th scope="col">Total Recovered</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr>
+            <td><span th:text="${canada.getActiveCases()}"></span></td>
+            <td><span th:text="${canada.getNewCases()}"></span></td>
+            <td><span th:text="${canada.getNewDeaths()}"></span></td>
+            <td><span th:text="${canada.getTotalCases()}"></span></td>
+            <td><span th:text="${canada.getTotalDeaths()}"></span></td>
+            <td><span th:text="${canada.getTotalRecovered()}"></span></td>
+         </tr>
+         </tbody>
+      </table>
+
+      <div th:text="${canadaDetail}"></div>
+   </div>
+</div>
+</body>
+</html>
