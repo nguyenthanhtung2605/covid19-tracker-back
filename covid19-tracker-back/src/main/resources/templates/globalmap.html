@@ -1,0 +1,51 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+   <meta charset="ISO-8859-1">
+   <title>Covid19 Info App</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script th:inline="javascript">
+       /*<![CDATA[*/
+       var myData = /*[[${globalmap}]]*/ "Global Map Update";
+       /*]]*/
+       google.charts.load('current', {
+           'packages': ['geochart'],
+           // Note: you will need to get a mapsApiKey for your project.
+           // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+           'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+       });
+       google.charts.setOnLoadCallback(drawRegionsMap);
+
+       function drawRegionsMap() {
+           // console.log(myData);
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'Country');
+           data.addColumn('number', 'Confirmed');
+           myData.map(function (item) {
+               if (item["country_name"] === "USA") {
+                   data.addRow(["United States", item["total_cases"]]);
+               } else {
+                   data.addRow([item["country_name"], item["total_cases"]]);
+               }
+           });
+           var options = {
+               colorAxis: {colors: ['#F98393', '#FA0324']}
+           };
+
+           var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+           chart.draw(data, options);
+       }
+   </script>
+</head>
+<body>
+
+<div class="container">
+   <div th:include="nav.html"></div>
+   <div class="alert alert-primary d-flex justify-content-center " role="alert">Global Statistics</div>
+   <div class="jumbotron" id="regions_div"></div>
+</div>
+</body>
+</html>

@@ -2,8 +2,12 @@ package io.soen487p3.webservice.covid19tracker.controller;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import io.soen487p3.webservice.covid19tracker.Utils.Utils;
 import io.soen487p3.webservice.covid19tracker.model.AffectedCountries;
 import io.soen487p3.webservice.covid19tracker.model.CountriesStats;
 import io.soen487p3.webservice.covid19tracker.model.CountryStats;
@@ -12,6 +16,7 @@ import io.soen487p3.webservice.covid19tracker.model.WorldStats;
 import io.soen487p3.webservice.covid19tracker.service.UserService;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +39,7 @@ public class AuthenticationController {
     private final String HOME = "home";
     private final String WORLD_STA = "worldsta";
     private final String AFFECTED_COUNTRIES = "affectedcountries";
+    private final String GLOBAL_MAP = "globalmap";
     private final String CANADA = "canada";
     private final String CANADA_DETAIL = "canadaDetail";
     private final String COUNTRY_STA = "countrysta";
@@ -147,7 +153,7 @@ public class AuthenticationController {
       ModelAndView modelAndView = new ModelAndView();
       try {
          AffectedCountries affectedCountries = covidInfoController.getAffectedCountries();
-         modelAndView.setViewName(AFFECTED_COUNTRIES); // resources/template/worldSta.html
+         modelAndView.setViewName(AFFECTED_COUNTRIES); // resources/template/affectedcountries.html
          modelAndView.addObject(AFFECTED_COUNTRIES, affectedCountries);
          return modelAndView;
       } catch (IOException | JSONException e) {
@@ -157,14 +163,43 @@ public class AuthenticationController {
    }
 
    @RequestMapping(value = "/canada", method = RequestMethod.GET)
-   public ModelAndView countrySta() {
+   public ModelAndView canadaSta() {
       ModelAndView modelAndView = new ModelAndView();
       try {
          CountryStats canadaStats = covidInfoController.getCanadaStatsSmall();
-         Map canadaDetailInfo = (JSON.parseObject(covidInfoController.getCanadaStats()).getJSONObject("data"));
-         modelAndView.setViewName(CANADA); // resources/template/worldSta.html
+         String canadaDetail = covidInfoController.getCanadaStats();
+         int[] myData = Utils.getCanadaDetail(canadaDetail);
+         modelAndView.setViewName(CANADA); // resources/template/canada.html
          modelAndView.addObject(CANADA, canadaStats);
-         modelAndView.addObject(CANADA_DETAIL, canadaDetailInfo);
+         modelAndView.addObject(CANADA_DETAIL, myData);
+         return modelAndView;
+      } catch (IOException | JSONException e) {
+         e.printStackTrace();
+      }
+      return modelAndView;
+   }
+
+   @RequestMapping(value = "/countrysta", method = RequestMethod.GET)
+   public ModelAndView countrySta() {
+      ModelAndView modelAndView = new ModelAndView();
+      try {
+         CountriesStats countriesStats = covidInfoController.getCountriesStats();
+         modelAndView.setViewName(COUNTRY_STA); // resources/template/countrysta.html
+         modelAndView.addObject(COUNTRY_STA, countriesStats);
+         return modelAndView;
+      } catch (IOException | JSONException e) {
+         e.printStackTrace();
+      }
+      return modelAndView;
+   }
+
+   @RequestMapping(value = "/globalmap", method = RequestMethod.GET)
+   public ModelAndView globalMap() {
+      ModelAndView modelAndView = new ModelAndView();
+      try {
+         CountriesStats countriesStats = covidInfoController.getCountriesStats();
+         modelAndView.setViewName(GLOBAL_MAP); // resources/template/globalmap.html
+         modelAndView.addObject(GLOBAL_MAP, countriesStats.getCountriesStats());
          return modelAndView;
       } catch (IOException | JSONException e) {
          e.printStackTrace();
