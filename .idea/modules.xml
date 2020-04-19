@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/covid19-tracker-back.iml" filepath="$PROJECT_DIR$/.idea/covid19-tracker-back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/covid19-tracker-back/covid19tracker.iml" filepath="$PROJECT_DIR$/covid19-tracker-back/covid19tracker.iml" />
+    </modules>
+  </component>
+</project>
