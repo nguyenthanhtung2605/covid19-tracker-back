@@ -240,7 +240,7 @@ public class CovidInfoService {
                     numberTotalCasesPer1M = formatInt.parse(arr.getJSONObject(i).getString("total_cases_per_1m_population"));
 
                 } catch (ParseException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 }
 
                 cs.setTotalCases(numberTotalCases.intValue());

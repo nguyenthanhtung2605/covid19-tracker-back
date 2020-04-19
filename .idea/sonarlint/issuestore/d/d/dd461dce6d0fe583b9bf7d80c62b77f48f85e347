@@ -1,0 +1,90 @@
+
+Q
+java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô
+?
+java:S1148’"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+7
+java:S1170*"!Make this final field static too.(¶øïÛ
+e
+java:S4488}"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ãèïûÿÿÿÿ
+i	java:S116&"ORename this field "USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å“ Æüÿÿÿÿ
+<
+java:S1170$"!Make this final field static too.(µÌİ€øÿÿÿÿ
+7
+java:S1170'"!Make this final field static too.(ÌûıÃ
+r	java:S116)"]Rename this field "AFFECTED_COUNTRIES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äˆº¤
+p	java:S116."VRename this field "SUCCESS_MSG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÈÍ÷şÿÿÿÿ
+m	java:S116%"SRename this field "REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ†Ûèùÿÿÿÿ
+r	java:S116,"XRename this field "CANADA_DETAIL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÿÌ¸ıÿÿÿÿ
+<
+java:S1170+"!Make this final field static too.(³…Œ¶ÿÿÿÿÿ
+K
+java:S1128"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ
+<
+java:S1170."!Make this final field static too.(õÈÍ÷şÿÿÿÿ
+c
+java:S4488;"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÓĞ¹Äÿÿÿÿÿ
+k	java:S116+"QRename this field "CANADA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³…Œ¶ÿÿÿÿÿ
+V
+java:S4684h"@Replace this persistent entity with a simple POJO or DTO object.(“Ú¦™
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+K
+java:S1128 "6Remove this unused import 'com.alibaba.fastjson.JSON'.(Ö¢å$
+c
+java:S4488K"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÖØÛùÿÿÿÿ
+^
+java:S4488R"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(é©•ú
+?
+java:S1148 "#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+j	java:S116*"URename this field "GLOBAL_MAP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶øïÛ
+T
+java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ
+<
+java:S1170%"!Make this final field static too.(œ†Ûèùÿÿÿÿ
+^
+java:S4488Y"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ä€¥¨
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+d	java:S116'"ORename this field "HOME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌûıÃ
+`
+java:S4488g"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÚŞ•
+<
+java:S1170,"!Make this final field static too.(ÜÿÌ¸ıÿÿÿÿ
+?
+java:S1148±"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+_
+java:S4488¥"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÕÕ–
+j	java:S116$"PRename this field "LOGIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µÌİ€øÿÿÿÿ
+<
+java:S1170&"!Make this final field static too.(å“ Æüÿÿÿÿ
+<
+java:S1170("!Make this final field static too.(–üËÿÿÿÿÿ
+^
+java:S4488Š"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(›Ğüg
+?
+java:S1148Í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+7
+java:S1170)"!Make this final field static too.(äˆº¤
+6
+java:S1170-"!Make this final field static too.(–Š¸_
+n	java:S116("TRename this field "WORLD_STA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–üËÿÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
+d
+java:S4488Ä"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(äõÑ‹ùÿÿÿÿ
+?
+java:S1148¿"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+^
+java:S4488D"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(£™şš
+j	java:S116-"VRename this field "COUNTRY_STA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Š¸_
+d
+java:S4488—"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(±•ƒŸûÿÿÿÿ
+c
+java:S44884"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(úÇÉèıÿÿÿÿ
+c
+java:S4488`"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(êÄÏàúÿÿÿÿ
+d
+java:S4488¶"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÁÆè®øÿÿÿÿ
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
